@@ -18,28 +18,28 @@ spec:
     spec:
       containers:
       - name: javawebappContainer
-        image: rajiv84iya/report-app
+        images: rajiv84iya/report-app
         ports:
           - containerPort: 8080
-    env:
-        - name: spring_datasource_url
-          valueFrom:
-            configMapKeyRef:
-              name: dbconfig
-              key: DB_URL
-        - name: spring_datasource_Driver
-          valueFrom:
-            configMapKeyRef:
-              name: dbconfig
-              key: DB_DRIVER_NAME
-        - name: spring_username
-          valueFrom:
-            secretKeyRef:
-              name: dbsecret
-              key: DB_USERNAME
-        - name: spring_pwd
-          valueFrom:
-            secretKeyRef:
-              name: dbsecret
-              key: DB_PASSWORD
+        env:
+            - name: spring_datasource_url
+              valueFrom:
+                configMapKeyRef:
+                  name: dbconfig
+                  key: DB_URL
+            - name: spring_datasource_Driver
+              valueFrom:
+                configMapKeyRef:
+                  name: dbconfig
+                  key: DB_DRIVER_NAME
+            - name: spring_username
+              valueFrom:
+                secretKeyRef:
+                  name: dbsecret
+                  key: DB_USERNAME
+            - name: spring_pwd
+              valueFrom:
+                secretKeyRef:
+                  name: dbsecret
+                  key: DB_PASSWORD
 ...
