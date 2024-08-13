@@ -17,8 +17,8 @@ spec:
         app: javawebapp
     spec:
       containers:
-      - name: javawebappContainer
-        images: rajiv84iya/report-app
+      - name: javawebappcontainer
+        image: rajiv84iya/report-app
         ports:
           - containerPort: 8080
         env:
@@ -42,4 +42,8 @@ spec:
                 secretKeyRef:
                   name: dbsecret
                   key: DB_PASSWORD
+<<<<<<< HEAD
 ...
+=======
+...
+>>>>>>> 87a5b082106ea0174ad76016eec3c30f00d88dad
