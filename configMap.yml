@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dbconfig
+  storage: db-storage
+data:
+  DB_DRIVER_NAME: com.mysql.cj.jdbc.Driver
+  DB_URL: jdbc:mysql://database.cb2m8ekc806k.ap-south-1.rds.amazonaws.com/report
+  DB_PORT_VALUE: "3306"

@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebappdeployment
+spec:
+  replicas: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: javawebapp
+  template:
+    metadata:
+      name: javawebapppod
+      labels:
+        app: javawebapp
+    spec:
+      containers:
+      - name: javawebappContainer
+        images: rajiv84iya/report-app
+        ports:
+          - containerPort: 8080
+    env:
+        - name: spring_datasource_url
+          valueFrom:
+            configMapKeyRef:
+              name: dbconfig
+              url: DB_URL
+        - name: spring_datasource_Driver
+          valueFrom:
+            configMapKeyRef:
+              name: dbconfig
+              driver: DB_DRIVER_NAME
+        - name: spring_username
+          valueFrom:
+            secretKeyRef:
+              name: dbsecret
+              uname: DB_USERNAME
+        - name: spring_pwd
+          valueFrom:
+            secretKeyRef:
+              name: dbsecret
+              pwd: DB_PASSWORD
+...
