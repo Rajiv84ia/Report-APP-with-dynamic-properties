@@ -42,8 +42,4 @@ spec:
                 secretKeyRef:
                   name: dbsecret
                   key: DB_PASSWORD
-<<<<<<< HEAD
 ...
-=======
-...
->>>>>>> 87a5b082106ea0174ad76016eec3c30f00d88dad
